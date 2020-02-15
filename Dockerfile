@@ -30,6 +30,9 @@ COPY apache_default /etc/apache2/sites-available/000-default.conf
 COPY run /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
 RUN a2enmod rewrite
+RUN echo "Europe/Paris" > /etc/timezone
+RUN dpkg-reconfigure -f noninteractive tzdata
+RUN rm -rf /var/www/html 
 
 EXPOSE 80
 CMD ["/usr/local/bin/run"]
