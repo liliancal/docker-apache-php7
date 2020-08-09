@@ -25,7 +25,8 @@ RUN apt-get update && \
       php7.0-soap \
       php7.0-opcache \
       php7.0-curl \
-      composer
+      composer \
+      cron
 #curl ajouté pour dolibarr curl_init()
 COPY apache_default /etc/apache2/sites-available/000-default.conf
 COPY run /usr/local/bin/run
